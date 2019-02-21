@@ -3,6 +3,9 @@
 *	2/14/19
 *	project1.java
 *	A game to record how fast the user can select the oval which moves upon mouse click.
+*
+*	javac -cp doodlepad.jar project1.java
+*	java -cp doodlepad.jar.; project1
 */
 
 import java.util.Random;
