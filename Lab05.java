@@ -2,7 +2,9 @@
 *	Joseph Ingenito
 *	2/26/19
 *	Lab05.java
-*	Grayscale an image by using a threshhold and looping over every pixel.
+*	Grayscale an image by using a weighted sum of the RGB values of each pixel, then 
+*   convert the image to black and white by choosing a cutoff value for the grayscaled value
+*   of each pixel.
 *
 *	javac -cp doodlepad.jar Lab05.java
 * 	java -cp doodlepad.jar.; Lab05
