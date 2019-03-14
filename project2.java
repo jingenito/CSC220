@@ -37,8 +37,8 @@ public class project2
 	public static int[][] applyRule30()
 	{
 		int[][] p = new int[rows][cols];
-		int center = cols / 2; //integer division will truncate the decimal
-		p[0][center] = 1; //initialize center of first row
+		//integer division will truncate the decimal
+		p[0][cols / 2] = 1; //initialize center of first row
 		
 		//start at 2nd row 
 		for(int y = 1; y < rows; ++y)
@@ -46,11 +46,7 @@ public class project2
 			//loop needs to start at 2nd column to always scan 1 before and 1 ahead
 			for(int x = 1; x < cols - 1; ++x) //only loop until 2nd to last col
 			{
-				//only apply rule if at least one of the 3 values are not 0
-				if(p[y-1][x-1] > 0 || p[y-1][x] > 0 || p[y-1][x+1] > 0)
-				{
-					p[y][x] = applyRowRule(p[y-1][x-1], p[y-1][x], p[y-1][x+1]);
-				}
+				p[y][x] = applyRowRule(p[y-1][x-1], p[y-1][x], p[y-1][x+1]); //apply row rule
 			}
 		}
 		return p;
@@ -63,24 +59,18 @@ public class project2
 		int rule = e1 | e2 | e3; //creates the integer from bitwise operations where e1 is most significant bit and e3 is least significant bit
 		switch(rule)
 		{
-			case 0:
-				return 0;
 			case 1:
-				return 1;
 			case 2:
-				return 1;
 			case 3:
-				return 1;
 			case 4:
-				return 1;
 			case 5:
 				return 1;
+			case 0:
 			case 6:
-				return 0;
 			case 7:
 				return 0;
 		}
-		return 0; //switch should always find a case but just in case
+		return 0; //switch should always return a value but just in case (pun intended)
 	}
 }
 
