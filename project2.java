@@ -58,9 +58,9 @@ public class project2
 	
 	public static int applyRowRule(int e1, int e2, int e3)
 	{
-		int x1 = e1 << 2; // e1 0 0
-		int x2 = e2 << 1; // 0 e2 0
-		int rule = x1 | x2 | e3; //creates the integer from bitwise operations where e1 is most significant bit and e3 is least significant bit
+		e1 <<= 2; // e1 0 0
+		e2 <<= 1; // 0 e2 0
+		int rule = e1 | e2 | e3; //creates the integer from bitwise operations where e1 is most significant bit and e3 is least significant bit
 		switch(rule)
 		{
 			case 0:
