@@ -9,6 +9,6 @@ public class WindowsComputer extends Computer
     @Override
     public String toString()
     {
-        return this.getBits() + "-bit Windows Computer";
+        return this.getBits() + "-bit Windows Computer, " + super.getId() + " " + (super.getWorking() ? "" : "(broken)");
     }
 }

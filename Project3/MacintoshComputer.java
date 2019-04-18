@@ -9,6 +9,6 @@ public class MacintoshComputer extends Computer
     @Override
     public String toString()
     {
-        return this.getBits() + "-bit Macintosh Computer";
+        return this.getBits() + "-bit Macintosh Computer, " + super.getId() + " " + (super.getWorking() ? "" : "(broken)");
     }
 }

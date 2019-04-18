@@ -10,6 +10,7 @@ public class Printer extends Equipment
         this.isColor = isColor;
     }
 
+    //constructor overload
     public Printer(String name)
     {
         super();
@@ -17,11 +18,13 @@ public class Printer extends Equipment
         this.isColor = false;
     }
 
+    //name get method
     public String getName()
     {
         return this.name;
     }
 
+    //isColor get method
     public boolean getIsColor()
     {
         return this.isColor;
@@ -30,6 +33,6 @@ public class Printer extends Equipment
     @Override
     public String toString()
     {
-        return String.format("Printer: %s, %s, %s, %s", this.name, this.isColor ? "Color" : "Black & White", super.getId(), super.getWorking());
+        return String.format("Printer: %s, %s, %s %s", this.name, this.isColor ? "Color" : "Black & White", super.getId(), (super.getWorking() ? "" : "(broken)"));
     }
 }

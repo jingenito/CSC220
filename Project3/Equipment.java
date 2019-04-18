@@ -12,16 +12,19 @@ public class Equipment
         this.id = count;
     }
 
-    public int getId()
+    //id get method
+    public String getId()
     {
-        return this.id;
+        return "SN: " + this.id;
     }
 
+    //working get method
     public boolean getWorking()
     {
         return this.working;
     }
     
+    //working set method
     public void setWorking(boolean state)
     {
         working = state;
