@@ -6,6 +6,9 @@
 // java project4
 
 import java.util.*;
+
+import com.sun.net.httpserver.Authenticator.Result;
+
 import java.io.*;
 
 public class project4
@@ -33,7 +36,12 @@ public class project4
 
     public enum GeneLookup
     {
-        a,b,c;
+        gene1("rs4994"), 
+        gene2("rs10422713"), 
+        gene3("i6010053"),
+        gene4("rs1801282"),
+        gene5("rs1042714"),
+        gene6("rs1801282");
 
         private String LookupString;
 
@@ -63,7 +71,7 @@ public class project4
             System.out.println("Error: " + fNfEx);
         }
 
-        
+        FlowChart(genotypes);
     }
 
     private static HashMap<String, String> getHashMap(Scanner sc)
@@ -77,9 +85,26 @@ public class project4
         } 
         return h;
     }
-
-    private static Results getFlowChartResults(HashMap<String, String> genotypes)
+    
+    private static void FlowChart(HashMap<String, String> genotypes)
     {
+        //Check 1
+        if(genotypes(GeneLookup.gene1) == "AA" || genotypes(GeneLookup.gene2) == "TT")
+        {
+            //Check 2
+            if(genotypes(gene2) == "AA" || genotypes(gene2) == "TT")
+            {
 
+            }
+            else
+            {
+
+            }
+        }
+        else
+        {
+            System.out.println(Results.P88);
+        }
     }
+    
 }
