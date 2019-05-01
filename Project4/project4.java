@@ -34,7 +34,7 @@ public class project4
     public enum GeneLookup
     {
         gene1("rs4994"), 
-        gene2("rs10422713"), 
+        gene2("rs1042713"), 
         gene3("i6010053"),
         gene4("rs1801282"),
         gene5("rs1042714"),
@@ -87,25 +87,21 @@ public class project4
 
     private static void FlowChart(HashMap<String, String> genotypes)
     {
-        Check1(genotypes);
-    }
-
-    private static void Check1(HashMap<String, String> g)
-    {
-        if(g.get(GeneLookup.gene1.toString()) == "AA" || g.get(GeneLookup.gene1.toString()) == "TT")
+        //Check 1
+        if(genotypes.get(GeneLookup.gene1.toString()).contains("AA") || genotypes.get(GeneLookup.gene1.toString()).contains("TT"))
         {
-            Check2(g);
+            Check2(genotypes);
         }
         else
         {
             System.out.println(Results.P88);
-            Check3(g);
+            Check3(genotypes);
         }
     }
 
     private static void Check2(HashMap<String, String> g)
     {
-        if(g.get(GeneLookup.gene2.toString()) == "AA" || g.get(GeneLookup.gene2.toString()) == "TT")
+        if(g.get(GeneLookup.gene2.toString()).contains("AA") || g.get(GeneLookup.gene2.toString()).contains("TT"))
         {
             System.out.println(Results.P12);
             Check4(g);
@@ -119,7 +115,7 @@ public class project4
     
     private static void Check3(HashMap<String, String> g)
     {
-        if(g.get(GeneLookup.gene3.toString()) == "GG")
+        if(g.get(GeneLookup.gene3.toString()).contains("GG"))
         {
             Check4(g);
         }
@@ -131,7 +127,7 @@ public class project4
 
     private static void Check4(HashMap<String, String> g)
     {
-        if(g.get(GeneLookup.gene4.toString()) == "CC")
+        if(g.get(GeneLookup.gene4.toString()).contains("CC"))
         {
             Check5(g);
         }
@@ -143,7 +139,7 @@ public class project4
 
     private static void Check5(HashMap<String, String> g)
     {
-        if(g.get(GeneLookup.gene5.toString()) == "CC")
+        if(g.get(GeneLookup.gene5.toString()).contains("CC"))
         {
             System.out.println(Results.P16);
         }
@@ -155,7 +151,7 @@ public class project4
 
     private static void Check6(HashMap<String, String> g)
     {
-        if(g.get(GeneLookup.gene6.toString()) == "CC")
+        if(g.get(GeneLookup.gene6.toString()).contains("CC"))
         {
             System.out.println(Results.P39);
         }
