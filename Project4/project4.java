@@ -6,9 +6,6 @@
 // java project4
 
 import java.util.*;
-
-import com.sun.net.httpserver.Authenticator.Result;
-
 import java.io.*;
 
 public class project4
@@ -65,13 +62,12 @@ public class project4
         try(Scanner sc = new Scanner(new File(args[0])))
         {
             genotypes = getHashMap(sc);
+            FlowChart(genotypes);
         }
         catch(FileNotFoundException fNfEx)
         {
             System.out.println("Error: " + fNfEx);
         }
-
-        FlowChart(genotypes);
     }
 
     private static HashMap<String, String> getHashMap(Scanner sc)
@@ -80,31 +76,92 @@ public class project4
         while(sc.hasNext()) 
         { 
             String line = sc.nextLine();
-            String[] items = line.split("\t");
-            h.put(items[0], items[3]);
+            if(!line.contains("#"))
+            {
+                String[] items = line.split("\t");
+                h.put(items[0], items[3]);
+            }
         } 
         return h;
     }
-    
+
     private static void FlowChart(HashMap<String, String> genotypes)
     {
-        //Check 1
-        if(genotypes(GeneLookup.gene1) == "AA" || genotypes(GeneLookup.gene2) == "TT")
+        Check1(genotypes);
+    }
+
+    private static void Check1(HashMap<String, String> g)
+    {
+        if(g.get(GeneLookup.gene1.toString()) == "AA" || g.get(GeneLookup.gene1.toString()) == "TT")
         {
-            //Check 2
-            if(genotypes(gene2) == "AA" || genotypes(gene2) == "TT")
-            {
-
-            }
-            else
-            {
-
-            }
+            Check2(g);
         }
         else
         {
             System.out.println(Results.P88);
+            Check3(g);
+        }
+    }
+
+    private static void Check2(HashMap<String, String> g)
+    {
+        if(g.get(GeneLookup.gene2.toString()) == "AA" || g.get(GeneLookup.gene2.toString()) == "TT")
+        {
+            System.out.println(Results.P12);
+            Check4(g);
+        }
+        else
+        {
+            System.out.println(Results.P88);
+            Check3(g);
         }
     }
     
+    private static void Check3(HashMap<String, String> g)
+    {
+        if(g.get(GeneLookup.gene3.toString()) == "GG")
+        {
+            Check4(g);
+        }
+        else
+        {
+            Check6(g);
+        }
+    }
+
+    private static void Check4(HashMap<String, String> g)
+    {
+        if(g.get(GeneLookup.gene4.toString()) == "CC")
+        {
+            Check5(g);
+        }
+        else
+        {
+            System.out.println(Results.P39);
+        }
+    }
+
+    private static void Check5(HashMap<String, String> g)
+    {
+        if(g.get(GeneLookup.gene5.toString()) == "CC")
+        {
+            System.out.println(Results.P16);
+        }
+        else
+        {
+            System.out.println(Results.P39);
+        }
+    }
+
+    private static void Check6(HashMap<String, String> g)
+    {
+        if(g.get(GeneLookup.gene6.toString()) == "CC")
+        {
+            System.out.println(Results.P39);
+        }
+        else
+        {
+            System.out.println(Results.P45);
+        }
+    }
 }
