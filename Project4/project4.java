@@ -3,7 +3,7 @@
 // Date       : 4/30/19
 // Description: Write a program to predict the diet/exercise regime for an individual based on SNP genotypes and the provided flow chart.
 // javac project4.java
-// java project4
+// java project4 report04.txt
 
 import java.util.*;
 import java.io.*;
@@ -57,11 +57,9 @@ public class project4
     {
         if(args.length < 1){ return;}
 
-        HashMap<String, String> genotypes = new HashMap<String, String>();
-
         try(Scanner sc = new Scanner(new File(args[0])))
         {
-            genotypes = getHashMap(sc);
+            HashMap<String, String> genotypes = getHashMap(sc);
             FlowChart(genotypes);
         }
         catch(FileNotFoundException fNfEx)
